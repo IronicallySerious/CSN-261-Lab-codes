@@ -5,8 +5,21 @@
 
 #include <iostream>
 
-int mainA2_2()
+#include <stack>
+#include <vector>
+
+int mainA22()
 {
+	std::stack<int> stack;
+	std::vector<int> integers;
+
+	int n = 0;
+	while(n > 0)
+	{
+
+
+		std::cin >> n;
+	}
 
 	return 0;
 }
