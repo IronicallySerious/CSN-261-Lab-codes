@@ -153,8 +153,12 @@
   <ItemGroup>
     <ClCompile Include="A1_1.cpp" />
     <ClCompile Include="A1_2.cpp" />
+    <ClCompile Include="A1_3.cpp" />
     <ClCompile Include="A2_1.cpp" />
     <ClCompile Include="A2_2.cpp" />
+    <ClCompile Include="A3_1.cpp" />
+    <ClCompile Include="A3_2.cpp" />
+    <ClCompile Include="A3_3.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

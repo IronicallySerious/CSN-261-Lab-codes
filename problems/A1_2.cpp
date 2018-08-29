@@ -60,7 +60,7 @@ long long replaceAll(std::string& str, const std::string& from, const std::strin
 	return i;
 }
 
-int main()
+int mainA1_2()
 {
 	int T = 0;
 	std::cin >> T;
@@ -83,4 +83,6 @@ int main()
 		std::cout << "Case " << t << ": " << replaceAll(map[N], P, "") << std::endl;
 		std::cin.get();
 	}
+
+	return 0;
 }
