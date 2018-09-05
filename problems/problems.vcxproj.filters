@@ -50,5 +50,8 @@
     <ClCompile Include="A3_3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="A4_1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

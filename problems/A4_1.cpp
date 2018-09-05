@@ -3,6 +3,7 @@
 #include <list>
 
 #define IN_OUT
+#define LOG(x)
 
 struct Data
 {
@@ -11,29 +12,38 @@ struct Data
 	Data(unsigned long value) : data(value) {}
 };
 
-Data &getItem(std::list<Data> &list, int location)
+//-------------------------------------------------------------------------------------------------------------------
+std::ostream &operator<<(std::ostream &stream, std::list<Data>&dataList);
+std::ostream &operator<<(std::ostream &stream, const Data &data);
+void AlternatingSplit(std::list<Data> *dataList, IN_OUT std::list<Data> *listA, IN_OUT std::list<Data> *listB);
+Data getItem(std::list<Data> *list, int location);
+//-------------------------------------------------------------------------------------------------------------------
+
+Data getItem(std::list<Data> *list, int location)
 {
 	long i = 0;
-	auto temp = list.begin();
+	std::list<Data>::const_iterator temp = list->begin();
 
-	while (i < list.size())
+	while (temp != list->end())
 	{
-		temp++;
-
 		if (i == location)
 		{
-			return temp->data;
+			return *temp;
 		}
+
+		i++;
+		temp++;
 	}
 }
 
-void AlternatingSplit(std::list<Data> &dataList, IN_OUT std::list<Data> &listA, IN_OUT std::list<Data> &listB)
+void AlternatingSplit(std::list<Data> *dataList, IN_OUT std::list<Data> *listA, IN_OUT std::list<Data> *listB)
 {
-	size_t listSize = dataList.size();
+	size_t listSize = dataList->size();
 
 	for (size_t item = 0; item < listSize; item++)
 	{
-		listA.push_back(getItem(listA, item));
+		LOG(getItem(listA, item));
+		listA->push_back(getItem(dataList, item));
 		item++;
 
 		if (item == listSize)
@@ -41,7 +51,7 @@ void AlternatingSplit(std::list<Data> &dataList, IN_OUT std::list<Data> &listA, 
 			break;
 		}
 
-		listB.push_back(getItem(listB, item));
+		listB->push_back(getItem(dataList, item));
 	}
 }
 
@@ -51,10 +61,15 @@ std::ostream &operator<<(std::ostream &stream, std::list<Data> &dataList)
 
 	for (auto item : dataList)
 	{
-		stream << item.data << " " << std::endl;
+		stream << item.data << " ";
 	}
-
+	std::cout << std::endl;
 	return stream;
+}
+
+std::ostream &operator<<(std::ostream &stream, const Data &data)
+{
+	stream << data.data << std::endl;
 }
 
 int main()
@@ -72,14 +87,14 @@ int main()
 	while (i < N)
 	{
 		unsigned long temp;
+
 		std::cin >> temp;
 		dataList.push_back(Data(temp));
 		i++;
 	}
 
-	AlternatingSplit(dataList, listA, listB);
+	AlternatingSplit(&dataList, &listA, &listB);
 
 	std::cout << listA << listB << std::endl;
-
 	return 0;
 }
