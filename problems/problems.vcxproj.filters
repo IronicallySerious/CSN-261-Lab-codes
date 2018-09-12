@@ -62,5 +62,11 @@
     <ClCompile Include="A5_1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="A5_2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="A5_3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

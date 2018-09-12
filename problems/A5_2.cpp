@@ -1,14 +1,16 @@
 //#include "stdafx.h"
 #include <iostream>
+#include <fstream>
 #include <map>
 #include <string>
 
-void displayMenu()
+void displayMenu2()
 {
 	std::cout << "MENU:\n"
 		"1. Read string\n"
 		"2. List\n"
-		"3. Quit\n"
+		"3. Read file\n"
+		"4. Quit\n"
 		<< std::endl;
 }
 
@@ -16,7 +18,7 @@ int main()
 {
 	int choice = 0;
 
-	displayMenu();
+	displayMenu2();
 
 	std::map<std::string, int> bst;
 
@@ -49,6 +51,27 @@ int main()
 
 			case 3:
 			{
+				std::cout << "Provide a file name: ";
+				std::string input;
+				std::cin.ignore();
+				getline(std::cin, input);
+
+				std::cout << std::endl;
+
+				std::ofstream file;
+				file.open(input);
+
+				for(auto item = bst.begin(); item != bst.end(); item++)
+				{
+					file << item->first;
+				}
+				file.close();
+
+			}
+			break;
+
+			case 4:
+			{
 				exit(0);
 			}
 			break;
@@ -59,7 +82,7 @@ int main()
 			}
 		}
 
-		displayMenu();
+		displayMenu2();
 	}
 	return 0;
 }
