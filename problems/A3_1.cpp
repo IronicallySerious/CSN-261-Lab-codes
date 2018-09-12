@@ -25,7 +25,7 @@ int select(int *a, int s, int e, int k) {
 	return select(a, 0, (e + 1) / 5, (e + 1) / 10);
 }
 
-int main()
+int mainA31()
 {
 	int a[] = {6, 7, 8, 1, 2, 3, 4, 5, 9, 10};
 	int n = 10;

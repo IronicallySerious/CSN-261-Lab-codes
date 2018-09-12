@@ -69,7 +69,7 @@ int findClosest(int arr[], int n, int target)
 	return arr[mid];
 }
 
-int main()
+int mainA32()
 {
 	int arr[] = {4, 6, 7, 3, 9};
 	int n = sizeof(arr) / sizeof(arr[0]);

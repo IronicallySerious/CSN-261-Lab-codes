@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include <iostream>
 #include <string>
 #include <list>
@@ -24,9 +25,9 @@ Data getItem(std::list<Data> *list, int location)
 	long i = 0;
 	std::list<Data>::const_iterator temp = list->begin();
 
-	while (temp != list->end())
+	while(temp != list->end())
 	{
-		if (i == location)
+		if(i == location)
 		{
 			return *temp;
 		}
@@ -40,13 +41,13 @@ void AlternatingSplit(std::list<Data> *dataList, IN_OUT std::list<Data> *listA, 
 {
 	size_t listSize = dataList->size();
 
-	for (size_t item = 0; item < listSize; item++)
+	for(size_t item = 0; item < listSize; item++)
 	{
 		LOG(getItem(listA, item));
 		listA->push_back(getItem(dataList, item));
 		item++;
 
-		if (item == listSize)
+		if(item == listSize)
 		{
 			break;
 		}
@@ -59,7 +60,7 @@ std::ostream &operator<<(std::ostream &stream, std::list<Data> &dataList)
 {
 	stream << "List: " << std::endl;
 
-	for (auto item : dataList)
+	for(auto item : dataList)
 	{
 		stream << item.data << " ";
 	}
@@ -70,9 +71,11 @@ std::ostream &operator<<(std::ostream &stream, std::list<Data> &dataList)
 std::ostream &operator<<(std::ostream &stream, const Data &data)
 {
 	stream << data.data << std::endl;
+
+	return stream;
 }
 
-int main()
+int mainA4_1()
 {
 	std::list<Data> dataList;
 	std::list<Data> listA;
@@ -84,7 +87,7 @@ int main()
 
 	std::cout << "Add int values to the list:" << std::endl;
 	unsigned long i = 0;
-	while (i < N)
+	while(i < N)
 	{
 		unsigned long temp;
 

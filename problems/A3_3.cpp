@@ -54,7 +54,7 @@ void printlist(Node *head)
 	cout << endl;
 }
 
-int main()
+int mainA33()
 {
 	Node *head1 = newNode(1);
 	head1->next = newNode(2);
